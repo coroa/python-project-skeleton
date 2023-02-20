@@ -8,4 +8,4 @@ USAGE:
 
 def main():
     """Print helloe sample."""
-    print('hello sample')  # noqa: T201
+    print("hello sample")  # noqa: T201
