@@ -28,14 +28,3 @@ Tox configuration file might be the trickiest one to learn and operate with
 until you are familiar with tox's workflows. `Read all about tox in their
 documentation pages <https://tox.readthedocs.io/en/latest/>`_. The ``tox.ini``
 file contains several comments explaining the implementations I adopted.
-
-bumpversion.cfg
-~~~~~~~~~~~~~~~
-
-The ``.bumpversion.cfg`` configuration is heavily related with the GitHub
-Actions workflows for automated packaging and deployment and the
-``CONTRIBUTING.rst`` instructions. Specially, the use of commit and tag
-messages, and the trick with CHANGELOG.rst.
-
-I have also used bumpversion in other projects to update the version on some
-badges.

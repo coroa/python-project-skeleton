@@ -48,7 +48,7 @@ author = 'Joao MC Teixeira'
 copyright = f'{year}, {author}'
 
 # Retrieve package version from installed metadata
-release = version('sampleproject')
+release = version('jmct-sampleproject')
 version = '.'.join(release.split('.')[:2])
 
 pygments_style = 'trac'
