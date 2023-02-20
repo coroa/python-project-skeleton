@@ -1,10 +1,9 @@
-# -*- coding: utf-8 -*-
 """Config file for Sphinx-docs."""
 import os
 import sys
 from importlib.metadata import version
+from unittest import mock
 
-import mock
 import sphinx_py3doc_enhanced_theme
 
 
@@ -46,7 +45,7 @@ master_doc = 'index'
 project = 'Python-Project-Skeleton'
 year = '2020'
 author = 'Joao MC Teixeira'
-copyright = '{0}, {1}'.format(year, author)
+copyright = f'{year}, {author}'
 
 # Retrieve package version from installed metadata
 release = version('sampleproject')
@@ -79,7 +78,7 @@ html_split_index = False
 html_sidebars = {
     '**': ['searchbox.html', 'globaltoc.html', 'sourcelink.html'],
     }
-html_short_title = '%s-%s' % (project, version)
+html_short_title = f'{project}-{version}'
 
 napoleon_use_ivar = True
 napoleon_use_rtype = False
