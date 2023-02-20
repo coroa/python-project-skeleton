@@ -14,7 +14,6 @@ Changelog
 Indices
 RdD
 Analytics
-AModule
 Libs
 samplemodule
 sampleclass
