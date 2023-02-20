@@ -1,9 +1,8 @@
 # -*- coding: utf-8 -*-
 """Config file for Sphinx-docs."""
-from __future__ import unicode_literals
-
 import os
 import sys
+from importlib.metadata import version
 
 import mock
 import sphinx_py3doc_enhanced_theme
@@ -48,7 +47,10 @@ project = 'Python-Project-Skeleton'
 year = '2020'
 author = 'Joao MC Teixeira'
 copyright = '{0}, {1}'.format(year, author)
-version = release = '0.11.2'
+
+# Retrieve package version from installed metadata
+release = version('sampleproject')
+version = '.'.join(release.split('.')[:2])
 
 pygments_style = 'trac'
 templates_path = ['.']
@@ -62,7 +64,7 @@ extlinks = {
 # in the .travis.yml file
 # see https://github.com/codecov/codecov-python/issues/158
 linkcheck_ignore = [
-    r'https://codecov.io/gh/joaomcteixeira/python-project-skeleton/*',
+    'https://codecov.io/gh/joaomcteixeira/python-project-skeleton/*',
     ]
 
 html_theme = "sphinx_py3doc_enhanced_theme"

@@ -1,3 +1,3 @@
 """Initial documentation of SampleProject."""
 
-__version__ = '0.11.2'
+from ._version import __version__

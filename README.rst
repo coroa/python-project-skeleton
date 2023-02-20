@@ -120,10 +120,6 @@ their CI implementations:
 If you use this repository as a reference for your works, let me know, so I
 list your work above, as well.
 
-Version
--------
-
-v0.11.2
 
 .. _GitHub Actions: https://github.com/features/actions
 .. _PyPI: https://pypi.org
