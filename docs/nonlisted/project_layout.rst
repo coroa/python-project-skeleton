@@ -41,15 +41,6 @@ example of how to assemble the documentation. You will see files that contain
 text and others that import text from relative files. The latter strategy avoids
 repeating information.
 
-devtools
-~~~~~~~~
-
-The ``devtools`` folder hosts the files related to development. In this case, I
-used the idea explained by `Chodera Lab`_ in their `structuring your project`_
-guidelines.
-
 .. _ionel: https://github.com/ionelmc
 .. _blog post: https://blog.ionelmc.ro/2014/05/25/python-packaging/
 .. _src-nosrc example: https://github.com/ionelmc/python-packaging-blunders
-.. _Chodera lab: https://github.com/choderalab
-.. _structuring your project: https://github.com/choderalab/software-development/blob/master/STRUCTURING_YOUR_PROJECT.md

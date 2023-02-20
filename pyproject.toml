@@ -18,10 +18,10 @@ classifiers = [
     'Operating System :: POSIX',
     'Operating System :: MacOS',
     'Operating System :: Microsoft',
-    'Programming Language :: Python :: 3.7',
     'Programming Language :: Python :: 3.8',
     'Programming Language :: Python :: 3.9',
     'Programming Language :: Python :: 3.10',
+    'Programming Language :: Python :: 3.11',
     'Topic :: Scientific/Engineering :: Bio-Informatics',
     "Development Status :: 4 - Beta",
     "Programming Language :: Python :: 3",
@@ -51,6 +51,20 @@ changelog = "https://github.com/joaomcteixeira/python-project-skeleton/blob/main
 [project.optional-dependencies]
 # e.g.:
 # rst = [ "docutils>=0.11" ]
+
+# Add dependencies for building docs and running tests
+docs = [
+    "sphinx>=2.2",
+    "sphinx-py3doc-enhanced-theme",
+    "sphinx-argparse",
+]
+
+test = [
+    "coverage",
+    "pytest",
+    "pytest-cov",
+    "hypothesis"
+]
 
 [project.scripts]
 #samplecli1 = "sampleproject.cli_int1:main"
@@ -108,9 +122,10 @@ select = [
 
 [tool.ruff.isort]
 lines-after-imports = 2
+known-first-party = ["sampleproject"]
 
 [tool.setuptools_scm]
-write_to = "src/sampleproject/_version.py"
+fallback_version = "999"
 
 [build-system]
 build-backend = "setuptools.build_meta"
