@@ -129,5 +129,5 @@ fallback_version = "999"
 
 [build-system]
 build-backend = "setuptools.build_meta"
-requires = ["setuptools>=46.1.0", "setuptools_scm[toml]>=6.2", "wheel"]
+requires = ["setuptools>=46.1.0", "setuptools_scm[toml]>=6.2"]
 
