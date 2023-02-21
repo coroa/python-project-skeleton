@@ -23,13 +23,12 @@ of a project. I am looking forward doing that in future versions.
 Testing
 ~~~~~~~
 
-Here, tests are encapsulated in a separate ``tests`` folder. With this
-encapsulation, outside the main library folder, it is easier to control that
-tests do not import from relative paths and can only access the library code
-after library installation (regardless of the installation mode). Also, having
-``tests`` in a separated folder facilitates the configuration files layout on
-excluding tests from deployment (``MANIFEST.in``) and code quality
-(``.codacy.yaml``) or coverage (``.coveragerc``).
+Here, tests are encapsulated in a separate ``tests`` folder. With this encapsulation,
+outside the main library folder, it is easier to control that tests do not import from
+relative paths and can only access the library code after library installation
+(regardless of the installation mode). Also, having ``tests`` in a separated folder
+facilitates the configuration files layout on excluding tests from deployment
+(``MANIFEST.in``) and coverage (``.coveragerc``).
 
 Documentation
 ~~~~~~~~~~~~~

@@ -2,6 +2,11 @@
 Changelog
 =========
 
+* Added pre-commit for applying automatic fixes before each commit
+* Replaced ``isort`` and ``flake8`` with ``ruff`` and ``black``
+* Changed release workflow to manual tagged releases
+* Adopted ``pyproject.toml`` as central source of configuration and dependencies
+
 v0.11.2 (2023-02-07)
 ------------------------------------------------------------
 

@@ -49,9 +49,6 @@ repository = "https://github.com/joaomcteixeira/python-project-skeleton.git"
 changelog = "https://github.com/joaomcteixeira/python-project-skeleton/blob/main/CHANGELOG.rst"
 
 [project.optional-dependencies]
-# e.g.:
-# rst = [ "docutils>=0.11" ]
-
 # Add dependencies for building docs and running tests
 docs = [
     "sphinx>=2.2",
@@ -67,7 +64,7 @@ test = [
 ]
 
 [project.scripts]
-#samplecli1 = "sampleproject.cli_int1:main"
+samplecli1 = "sampleproject.cli_int1:main"
 
 [tool.pytest.ini_options]
 # If a pytest section is found in one of the possible config files

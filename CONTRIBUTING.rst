@@ -43,30 +43,30 @@ packages using pip and virtual environments`_, most likely what you want is:
 
 ::
 
-    python3 -m venv newenv
-    source newenv/bin/activate
+    python -m venv venv
+    source venv/bin/activate
 
 If you are using `Anaconda`_ go for:
 
 ::
 
-    conda create --name newenv python=3.7
-    conda activate newenv
+    mamba create --name jmct-sampleproject python
+    mamba activate jmct-sampleproject
 
-Where :code:`newenv` is the name you wish to give to the environment
+Where :code:`jmct-sampleproject` is the name you wish to give to the environment
 dedicated to this project.
 
-Either under *pip* or *conda*, install the package in :code:`develop` mode.
+Either under *pip* or *mamba*, install the package in :code:`develop` mode.
 Install also :ref:`tox<Uniformed Tests with tox>`.
 
 ::
 
-    python setup.py develop
+    pip install -e ".[docs,test]"
     pip install tox
 
 This configuration, together with the use of the ``src`` folder layer,
 guarantees that you will always run the code after installation. Also, thanks to
-the ``develop`` flag, any changes in the code will be automatically reflected in
+the ``editable`` flag, any changes in the code will be automatically reflected in
 the installed version.
 
 Make a new branch
@@ -76,8 +76,8 @@ From the ``main`` branch create a new branch where to develop the new code.
 
 ::
 
-    git checkout main
-    git checkout -b new_branch
+    git switch main
+    git switch -c new_branch
 
 
 **Note** the ``main`` branch is from the main repository.
@@ -104,9 +104,9 @@ the ``main`` branch. For that:
 
 ::
 
-    git checkout main  # return to the main branch
+    git switch main  # return to the main branch
     git pull  # retrieve the latest source from the main repository
-    git checkout new_branch  # return to your devel branch
+    git switch new_branch  # return to your devel branch
     git merge --no-ff main  # merge the new code to your branch
 
 At this point you may need to solve merge conflicts if they exist. If you don't
@@ -168,7 +168,7 @@ phase. Therefore, to run the unified test suite, developers just need to execute
 
     pip install tox
     # or
-    conda install tox -c conda-forge
+    mamba install tox -c conda-forge
 
 
 One of the greatest advantages of using ``tox`` together with the :ref:`src
@@ -203,13 +203,13 @@ functionalities, for example:
 .. _tox.ini: https://github.com/joaomcteixeira/python-project-skeleton/blob/latest/tox.ini
 .. _Tox: https://tox.readthedocs.io/en/latest/
 .. _tox is installed: https://tox.readthedocs.io/en/latest/install.html
-.. _MANIFEST.in: https://github.com/joaomcteixeira/python-project-skeleton/blob/master/MANIFEST.in
+.. _MANIFEST.in: https://github.com/joaomcteixeira/python-project-skeleton/blob/main/MANIFEST.in
 .. _Fork this repository before contributing: https://github.com/joaomcteixeira/python-project-skeleton/network/members
 .. _up to date with the upstream: https://gist.github.com/CristinaSolana/1885435
 .. _contributions to the project: https://github.com/joaomcteixeira/python-project-skeleton/network
 .. _Gitflow Workflow: https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow
 .. _Pull Request: https://github.com/joaomcteixeira/python-project-skeleton/pulls
-.. _PULLREQUEST.rst: https://github.com/joaomcteixeira/python-project-skeleton/blob/master/docs/PULLREQUEST.rst
+.. _PULLREQUEST.rst: https://github.com/joaomcteixeira/python-project-skeleton/blob/main/docs/PULLREQUEST.rst
 .. _1: https://git-scm.com/docs/git-merge#Documentation/git-merge.txt---no-ff
 .. _2: https://stackoverflow.com/questions/9069061/what-is-the-difference-between-git-merge-and-git-merge-no-ff
 .. _Installing packages using pip and virtual environments: https://packaging.python.org/guides/installing-using-pip-and-virtual-environments/#creating-a-virtual-environment

@@ -9,10 +9,12 @@ in at Read the Docs.
 Docs Requirements
 ~~~~~~~~~~~~~~~~~
 
-Requirements to build the documentation page are listed in
-``devtools/docs_requirements.txt``:
+Requirements to build the documentation page are listed as the ``docs`` list
+of optional dependencies in ``pyproject.toml``:
 
-.. literalinclude:: ../devtools/docs_requirements.txt
+.. literalinclude:: ../pyproject.toml
+    :start-at: [project.optional-dependencies]
+    :end-before: [project
 
 Here we use `Sphinx`_ as the documentation builder and the
 `sphinx-py3doc-enhanced-theme`_ as theme, though you can use many different
@@ -22,11 +24,8 @@ Build version
 ~~~~~~~~~~~~~
 
 By default, RtD has two main documentation versions (also called builds): the
-*latest* and the *stable*. The *latest* points to the ``master`` branch while
-the *stable* points to the `latest GitHub tag`_. However, as we have discussed
-in :ref:`The Rationale behind the project` section, here we keep only the
-*latest* version (that of the ``master`` branch) and other versions for the
-different releases of interest.
+*latest* and the *stable*. The *latest* points to the ``main`` branch while
+the *stable* points to the `latest GitHub tag`_ (or released version).
 
 Google Analytics
 ~~~~~~~~~~~~~~~~

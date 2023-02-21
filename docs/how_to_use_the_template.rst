@@ -26,8 +26,8 @@ you need to change in the files to adapt the template to you and your project:
     Kudos to https://stackoverflow.com/questions/6758963.
 
 1. Where it says ``joaomcteixeira``, rename it to your GitHub user name. In
-``setup.py`` and in ``AUTHORS.rst`` there is also my full written name, rename
-it to yours.
+``pyproject.toml`` and in ``AUTHORS.rst`` there is also my full written name,
+rename it to yours.
 
 2. Where ever it says ``sampleproject`` change it for the name of your project.
 That is, what you would like your users to import.
@@ -36,18 +36,18 @@ That is, what you would like your users to import.
 
     import sampleproject
 
-3. In ``setup.py`` rename :code:`jmct-sampleproject` for the name your project will
+3. In ``project.toml``, ``docs/conf.py`` and ``src/sampleproject/__init__.py``
+rename :code:`jmct-sampleproject` for the name your project will
 have at PyPI. Usually this is the same as the name you decided above.
 
 4. Replace ``python-project-skeleton`` to the name of the repository of your
 project. It might be the same name as the Python package and the PyPI package,
 that is up to you entirely.
 
-5. This template is deployed at ``test.pypi.org``. You need to change the last
-line of the `version-bump-and-package.yml
-<https://github.com/joaomcteixeira/python-project-skeleton/blob/master/.github/workflows/version-bump-and-package.yml>`_
-file and remove the ``--repository testpypi`` tag so that your project is
-deployed at the main PyPI repository.
+5. This template is deployed at ``test.pypi.org``. You need to uncomment the last
+lines of the `publish-tagged-to-pypi.yml
+<https://github.com/coroa/python-project-skeleton/blob/main/.github/workflows/publish-tagged-to-pypi.yml>`_
+file and create PyPI API tokens as described in the `PyPA guide`_
 
 6. Remove and edit some of the unnecessary files in the ``docs`` folder. Mainly those
 related explicitly to this template repository and reference herein.
@@ -64,3 +64,6 @@ do not want. For example, if you don't want to have your project tracked by
 CodeClimate, remove the files and lines related to it.
 
 Enjoy, and if you like this template, please let me know.
+
+
+.. _PyPA guide: https://packaging.python.org/en/latest/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows/#saving-credentials-on-github
