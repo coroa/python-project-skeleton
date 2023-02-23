@@ -13,12 +13,14 @@ jobs:
       # fail-fast: false
       matrix:
         platform: [ubuntu-latest, macos-latest, windows-latest]
-        python-version: [3.8, 3.9, '3.10', 3.11]
+        python-version: [3.8, 3.11] # to minimise complexity we only test a min and a max version
         # you can separate the tox-envs in different .yml files
         # see version 0.10.1
         # https://github.com/joaomcteixeira/python-project-skeleton/releases/tag/v0.10.1
         # below the list of tox envs that you wish to include in the matrix
-        tox-envs: [docs, lint, build, test]
+        include:
+          # on all platforms and versions do everything
+          - tox-envs: [docs, lint, build, test]
 
     runs-on: ${{ matrix.platform }}
 
@@ -35,11 +37,10 @@ jobs:
         python -m pip install tox
 
     - name: Run tox environments for testing
-      run: tox -e ${{ matrix.tox-envs }}
+      run: tox -e ${{ join(matrix.tox-envs, ',') }}
 
     # from https://github.com/codecov/codecov-action
     - name: Upload coverage to Codecov
-      if: matrix.tox-envs == 'test'
       uses: codecov/codecov-action@v3
       with:
         files: ./coverage.xml
