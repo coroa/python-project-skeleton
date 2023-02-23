@@ -2,7 +2,7 @@ Badges
 ------
 
 Badges point to the current status of the different Continuous Integration tools
-in the ``master`` branch. You can also configure badges to report on other
+in the ``main`` branch. You can also configure badges to report on other
 branches, though. Are tests passing? Is the package building properly? Is
 documentation building properly? What is the quality of the code? Red lights
 mean something is wrong and you should attend it shortly!

@@ -9,14 +9,6 @@ Python Package Skeleton Template
     :target: https://codecov.io/gh/joaomcteixeira/python-project-skeleton
     :alt: Codecov
 
-.. image:: https://api.codeclimate.com/v1/badges/d96cc9a1841a819cd4f5/maintainability
-   :target: https://codeclimate.com/github/joaomcteixeira/python-project-skeleton/maintainability
-   :alt: Maintainability
-
-.. image:: https://img.shields.io/codeclimate/tech-debt/joaomcteixeira/python-project-skeleton
-    :target: https://codeclimate.com/github/joaomcteixeira/python-project-skeleton
-    :alt: Code Climate technical debt
-
 .. image:: https://img.shields.io/readthedocs/python-project-skeleton/latest?label=Read%20the%20Docs
     :target: https://python-project-skeleton.readthedocs.io/en/latest/index.html
     :alt: Read the Docs
@@ -34,10 +26,10 @@ repository as a direct template for your repositories.
 the CI needs for my Python projects, which include:
 
 * A robust Python library/application file hierarchy with packages, modules, clients, and documentation:
-    * detailed, yet simple, ``setup.py``
+    * detailed, yet simple, ``pyproject.toml``
     * retrievable ``README`` and ``CHANGELOG``
     * documentation deployed in `ReadTheDocs`_
-    * the unusual adoption of the ``src`` directory layer (love it)
+    * the adoption of the ``src`` directory layer
     * examples of packages and modules hierarchy
     * examples of Python command-line interfaces
 * A unique testing framework for developers with `tox`_ and `pytest`_
@@ -49,7 +41,8 @@ the CI needs for my Python projects, which include:
     * automatic testing on Linux, MacOS, and Windows
     * automatic testing simulated upon deployment with ``tox``
     * test coverage report to Codecov
-    * automated version bump with `bump2version`_, git tagging, and Python packaging to PyPI on Pull Request merge
+    * automated versioning based on setuptools_scm relying on git tagging
+    * automated python packaging deploy to (Test)PyPI
 
 Motivation
 ----------
@@ -81,11 +74,6 @@ I configured the CI pipeline to my needs by taking bits and pieces from many
 places. Kudos to `python-nameless`_ and `cookiecutter-pylibrary`_; two primary
 sources of information for the *python-project-skeleton* repository, especially
 in the first versions using Travis and Appveyor.
-
-When migrating to GitHub Actions, I based my choices on the version bump and
-deploying workflows `@JoaoRodrigues <https://github.com/JoaoRodrigues>`_
-assembled for `pdb-tools`_; on the `tox-gh-actions`_ package; and on
-`structlog`_. Implementation details have evolved with newest versions.
 
 I refer to other important sources of information as comments in the specific
 files. Thanks, everyone, for keeping open discussions on internet.
@@ -124,7 +112,6 @@ list your work above, as well.
 .. _GitHub Actions: https://github.com/features/actions
 .. _PyPI: https://pypi.org
 .. _blog post: https://blog.ionelmc.ro/2014/05/25/python-packaging/
-.. _bump2version: https://github.com/c4urself/bump2version
 .. _cookiecutter-pylibrary: https://github.com/ionelmc/cookiecutter-pylibrary
 .. _cookiecutter: https://cookiecutter.readthedocs.io/en/latest/index.html
 .. _discussion: https://github.com/joaomcteixeira/python-project-skeleton/discussions
@@ -139,7 +126,6 @@ list your work above, as well.
 .. _project's documentation: https://python-project-skeleton.readthedocs.io/en/latest/index.html
 .. _pytest: https://docs.pytest.org/en/stable/
 .. _python-nameless: https://github.com/ionelmc/python-nameless
-.. _structlog: https://github.com/hynek/structlog
 .. _test.pypi.org: https://test.pypi.org
 .. _tox-gh-actions: https://github.com/ymyzk/tox-gh-actions
 .. _tox: https://tox.readthedocs.io/en/latest/

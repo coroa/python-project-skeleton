@@ -32,15 +32,13 @@ The versioning scheme adopted here is the `Semantic Versioning 2`_.
 The development process
 -----------------------
 
-Any code addition must come in the form of pull requests from forked
-repositories. Any merged pull request is followed the by respective increment
-in the software version and consecutive deployment of the new version in PyPI.
-If there are 5 pull request merges in one day, there will be 5 new versions
-releases that same day. Each new version should be tagged accordingly in git.
+Code additions SHOULD come in the form of pull requests from forked
+repositories. Any merged pull request SHOULD include a manual description in
+`CHANGELOG.rst`. Versions are created manually by revising CHANGELOG.rst, and
+creating a version tag on the ``main`` branch with the correct semantic
+version increment. Deployment of the new version to PyPI is automated.
 
-Additions to the documentation *also* count to the version number.
-
-Additions to the CI platform *may* skip an increase in version number, using the
-``[SKIP]`` tag in the merge commit message, as explained in :ref:`version release <Version release>`.
+The release proceedure is described in more depth in :ref:`version release <Version
+release>`.
 
 .. _Semantic Versioning 2: https://semver.org/#semantic-versioning-200

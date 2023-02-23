@@ -4,19 +4,19 @@ Configuration Files
 MANIFEST.in
 ~~~~~~~~~~~
 
-The ``MANIFEST.in`` file configures which files in the repository/folder are
-grabbed or ignored when assembly the distributed package. You can see that I
-package the ``src``, the ``docs``, other ``*.rst`` files, the ``LICENSE`` and
-nothing more. All configuration files, tests, and other Python related or IDE
-related files are excluded.
+The ``MANIFEST.in`` file configures which files in the repository/folder are grabbed or
+ignored when assembling the distributed package. Originally this was at the discretion
+of the user to keep up-to-date, but recently tooling has evolved, to auto-generate most
+things which would have been listed here.  The default setting is to ship everything
+that is committed to the git repository except for what is excluded or prune explicitly
+in ``MANIFEST.in``. 
 
-There is a debate on whether tests should be deployed along with the library
+All configuration files, tests, and other Python related or IDE related files are
+excluded. There is a debate on whether tests should be deployed along with the library
 source. Should they? Tox and the CI integration guarantees tests are run on
 *installed* versions of the software. So, I am the kind of person that
-considers there is no need to deploy tests alongside with the source. Users
-aren't going to run tests. Developers will.
-
-Let me know if you think differently.
+considers there is no need to deploy tests alongside with the source. Users aren't going
+to run tests. Developers will.
 
 It is actually easy to work with MANIFEST.in file. Feel free to add or remove
 files as your project needs.
