@@ -1,85 +1,138 @@
-"""Config file for Sphinx-docs."""
+"""
+Configuration file for the Sphinx documentation builder.
+"""
+
+
+# This file only contains a selection of the most common options. For a full
+# list see the documentation:
+# https://www.sphinx-doc.org/en/master/usage/configuration.html
+
 import os
-import sys
 from importlib.metadata import version
-from unittest import mock
-
-import sphinx_py3doc_enhanced_theme
 
 
-mock_modules = [
-    'matplotlib',
-    ]
+# -- Project information --------------------------------------------------------------
 
-for modulename in mock_modules:
-    sys.modules[modulename] = mock.Mock()
-
-extensions = [
-    'sphinx.ext.autodoc',
-    'sphinx.ext.autosummary',
-    'sphinx.ext.coverage',
-    'sphinx.ext.doctest',
-    'sphinx.ext.extlinks',
-    'sphinx.ext.ifconfig',
-    'sphinx.ext.napoleon',
-    'sphinx.ext.todo',
-    'sphinx.ext.viewcode',
-    'sphinx.ext.autosectionlabel',
-    ]
-
-todo_include_todos = True
-
-exclude_patterns = [
-    'nonlisted/*.rst',
-    ]
-
-if os.getenv('SPELLCHECK'):
-    extensions += 'sphinxcontrib.spelling',
-    spelling_show_suggestions = True
-    spelling_lang = 'en_US'
-    # https://sphinxcontrib-spelling.readthedocs.io/en/latest/customize.html
-    spelling_word_list_filename = ['spelling_wordlist.txt']
-
-source_suffix = '.rst'
-master_doc = 'index'
-project = 'Python-Project-Skeleton'
-year = '2020'
-author = 'Joao MC Teixeira'
-copyright = f'{year}, {author}'
+source_suffix = ".rst"
+master_doc = "index"
+project = "jmct-sampleproject"
+year = "2020"
+author = ", ".join(["Joao MC Teixeira"])
+copyright = f"{year}, {author}"
 
 # Retrieve package version from installed metadata
-release = version('jmct-sampleproject')
-version = '.'.join(release.split('.')[:2])
+release = version("jmct-sampleproject")
+version = ".".join(release.split(".")[:3])
 
-pygments_style = 'trac'
-templates_path = ['.']
+
+# -- General configuration ---------------------------------------------------
+
+# Add any Sphinx extension module names here, as strings. They can be
+# extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
+# ones.
+
+extensions = [
+    "sphinx.ext.autodoc",
+    "sphinx.ext.coverage",
+    "sphinx.ext.doctest",
+    "sphinx.ext.extlinks",
+    "sphinx.ext.autosectionlabel",
+    # "sphinx.ext.ifconfig",
+    "sphinx.ext.napoleon",
+    "sphinx.ext.intersphinx",
+    # "sphinx.ext.todo",
+    # "sphinx.ext.viewcode",
+    "myst_nb",
+]
+
+if os.getenv("SPELLCHECK"):
+    extensions += ("sphinxcontrib.spelling",)
+    spelling_show_suggestions = True
+    spelling_lang = "en_US"
+    # https://sphinxcontrib-spelling.readthedocs.io/en/latest/customize.html
+    spelling_word_list_filename = ["spelling_wordlist.txt"]
+
+# Add any paths that contain templates here, relative to this directory.
+templates_path = ["."]
+
+
 extlinks = {
-    'issue': ('https://github.com/joaomcteixeira/python-project-skeleton/issues/%s', '#'),  # noqa: E501
-    'pr': ('https://github.com/joaomcteixeira/python-project-skeleton/pull/%s', 'PR #'),  # noqa: E501
-    }
+    "issue": (
+        "https://github.com/coroa/python-project-skeleton/issues/%s",
+        "GH%s",
+    ),
+    "pull": ("https://github.com/coroa/python-project-skeleton/pull/%s", "PR%s"),
+}
 
 # codecov io closes connection if host is accessed too repetitively.
 # codecov links are ignored here for the same reason there's a sleep
 # in the .travis.yml file
 # see https://github.com/codecov/codecov-python/issues/158
 linkcheck_ignore = [
-    'https://codecov.io/gh/joaomcteixeira/python-project-skeleton/*',
-    ]
+    "https://codecov.io/gh/coroa/python-project-skeleton/*",
+]
 
-html_theme = "sphinx_py3doc_enhanced_theme"
-html_theme_path = [sphinx_py3doc_enhanced_theme.get_html_theme_path()]
-html_theme_options = {
-    'githuburl': 'https://github.com/joaomcteixeira/python-project-skeleton',
-    }
+# List of patterns, relative to source directory, that match files and
+# directories to ignore when looking for source files.
+# This pattern also affects html_static_path and html_extra_path.
+exclude_patterns = ["html", "jupyter_execute"]
 
-html_use_smartypants = True
-html_last_updated_fmt = '%b %d, %Y'
-html_split_index = False
-html_sidebars = {
-    '**': ['searchbox.html', 'globaltoc.html', 'sourcelink.html'],
-    }
-html_short_title = f'{project}-{version}'
+# The name of the Pygments (syntax highlighting) style to use.
+pygments_style = "sphinx"
 
-napoleon_use_ivar = True
-napoleon_use_rtype = False
-napoleon_use_param = False
+# -- Options for HTML output -------------------------------------------------
+
+html_theme = "sphinx_rtd_theme"
+html_theme_path = ["_static"]
+
+html_context = {
+    "display_github": False,
+    "github_user": "coroa",
+    "github_repo": "python-project-skeleton",
+    "github_version": "main",
+    "conf_py_path": "/docs/source",
+}
+
+html_static_path = ["_static"]
+html_css_files = ["custom.css"]
+
+
+# -- Extension configuration -------------------------------------------------
+
+# -- Options for coverage extension ------------------------------------------
+coverage_write_headline = False  # do not write headlines.
+
+# -- Options for autodoc extension -------------------------------------------
+
+# Do not add module names in the doc to hide the internal package structure of SeisBench
+add_module_names = False
+autodoc_default_options = {
+    "members": True,
+    "undoc-members": False,
+    "private-members": False,
+    "special-members": False,
+    "inherited-members": True,
+    "show-inheritance": True,
+}
+
+# -- Options for intersphinx extension ---------------------------------------
+
+# Example configuration for intersphinx: refer to the Python standard library.
+intersphinx_mapping = {
+    "numpy": ("https://numpy.org/doc/stable", None),
+    "pandas": ("https://pandas.pydata.org/pandas-docs/stable", None),
+    "python": ("https://docs.python.org/3", None),
+    "pyam": ("https://pyam-iamc.readthedocs.io/en/latest", None),
+    "scmdata": ("https://scmdata.readthedocs.io/en/latest", None),
+    # "pint": ("https://pint.readthedocs.io/en/latest", None), # no full API doc here, unfortunately
+}
+
+# -- Options for napoleon extension ------------------------------------------
+napoleon_google_docstring = False
+napoleon_numpy_docstring = True
+set_type_checking_flag = False
+
+# -- Options for todo extension ----------------------------------------------
+
+# If true, `todo` and `todoList` produce output, else they produce nothing.
+todo_include_todos = True
