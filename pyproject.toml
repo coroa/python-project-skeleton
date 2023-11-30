@@ -1,70 +1,74 @@
 [project]
-name = "jmct-sampleproject"
-description = "A skeleton template for Python projects."
-readme = "README.rst"
-license = {text = "MIT"}
 authors = [
-    {name = "Joao Miguel Correia Teixeira", email = "joaomcteixeira@gmail.com"},
+  {name = "Joao Miguel Correia Teixeira", email = "joaomcteixeira@gmail.com"},
 ]
+description = "A skeleton template for Python projects."
+license = {text = "MIT"}
+name = "jmct-sampleproject"
+readme = "README.rst"
 
 # complete classifier list:
 # http://pypi.org/classifiers/
 classifiers = [
-    'Development Status :: 4 - Beta',
-    # 'License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)',
-    'License :: OSI Approved :: MIT License',
-    'Intended Audience :: Science/Research',
-    'Natural Language :: English',
-    'Operating System :: POSIX',
-    'Operating System :: MacOS',
-    'Operating System :: Microsoft',
-    'Programming Language :: Python :: 3.8',
-    'Programming Language :: Python :: 3.9',
-    'Programming Language :: Python :: 3.10',
-    'Programming Language :: Python :: 3.11',
-    'Topic :: Scientific/Engineering :: Bio-Informatics',
-    "Development Status :: 4 - Beta",
-    "Programming Language :: Python :: 3",
-    "License :: OSI Approved :: MIT License",
+  'Development Status :: 4 - Beta', # 'License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)',
+  'License :: OSI Approved :: MIT License',
+  'Intended Audience :: Science/Research',
+  'Natural Language :: English',
+  'Operating System :: POSIX',
+  'Operating System :: MacOS',
+  'Operating System :: Microsoft',
+  'Programming Language :: Python :: 3.8',
+  'Programming Language :: Python :: 3.9',
+  'Programming Language :: Python :: 3.10',
+  'Programming Language :: Python :: 3.11',
+  "Development Status :: 4 - Beta",
+  "Programming Language :: Python :: 3",
+  "License :: OSI Approved :: MIT License",
 ]
 
-keywords=[
-    'ci', 'continuous-integration', 'project-template', 'project-skeleton',
-    'sample-project',
-    # eg: 'keyword1', 'keyword2', 'keyword3',
+keywords = [
+  'ci',
+  'continuous-integration',
+  'project-template',
+  'project-skeleton',
+  'sample-project', # eg: 'keyword1', 'keyword2', 'keyword3',
 ]
 
-requires-python = ">=3.8, <4"
 dependencies = [
-    # https://stackoverflow.com/questions/14399534
-    'matplotlib>=3',
+  # https://stackoverflow.com/questions/14399534
+  'pandas>=1.2',
+  'deprecated',
+  "attrs",
 ]
+requires-python = ">=3.8, <4"
 
 dynamic = ["version"]
 
 [project.urls]
-homepage = "https://github.com/joaomcteixeira/python-project-skeleton"
-documentation = "https://python-project-skeleton.readthedocs.io/en/latest/"
-repository = "https://github.com/joaomcteixeira/python-project-skeleton.git"
 changelog = "https://github.com/joaomcteixeira/python-project-skeleton/blob/main/CHANGELOG.rst"
+documentation = "https://python-project-skeleton.readthedocs.io/en/latest/"
+homepage = "https://github.com/joaomcteixeira/python-project-skeleton"
+repository = "https://github.com/joaomcteixeira/python-project-skeleton.git"
 
 [project.optional-dependencies]
 # Add dependencies for building docs and running tests
 docs = [
-    "sphinx>=2.2",
-    "sphinx-py3doc-enhanced-theme",
-    "sphinx-argparse",
+  "sphinx>=2.2",
+  "sphinx-argparse",
+  "sphinx-rtd-theme",
+  "myst_nb",
+  "ipython",
 ]
 
 test = [
-    "coverage",
-    "pytest",
-    "pytest-cov",
-    "hypothesis"
+  "coverage",
+  "pytest",
+  "pytest-cov",
+  "hypothesis",
 ]
 
 [project.scripts]
-samplecli1 = "sampleproject.cli_int1:main"
+# samplecli1 = "sampleproject.cli_int1:main"
 
 [tool.pytest.ini_options]
 # If a pytest section is found in one of the possible config files
@@ -75,9 +79,9 @@ samplecli1 = "sampleproject.cli_int1:main"
 #migrations
 addopts = "-p pytest_cov"
 python_files = [
-    "test_*.py",
-    "*_test.py",
-    "tests.py"
+  "test_*.py",
+  "*_test.py",
+  "tests.py",
 ]
 #addopts =
 #    -ra
@@ -86,7 +90,7 @@ python_files = [
 #    --doctest-glob=\*.rst
 #    --tb=short
 testpaths = [
-    "tests"
+  "tests",
 ]
 
 [tool.ruff]
@@ -131,4 +135,3 @@ fallback_version = "999"
 [build-system]
 build-backend = "setuptools.build_meta"
 requires = ["setuptools>=46.1.0", "setuptools_scm[toml]>=6.2"]
-
